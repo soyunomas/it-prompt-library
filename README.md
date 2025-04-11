@@ -1,6 +1,6 @@
 # 📚 IT Prompt Library
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Demo - Ver Librería](https://img.shields.io/badge/Demo-Ver_Librería-brightgreen)](https://soyunomas.github.io/it-prompt-library/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Demo - Ver Librería](https://img.shields.io/badge/Demo-Ver_Librería-brightgreen)](https://soyunomas.github.io/it-prompt-library/index.html)
 
 Una colección curada de System Prompts diseñados para ayudar a profesionales de TI en diversas tareas y roles. 🤖
 
@@ -14,7 +14,7 @@ Este proyecto proporciona una interfaz web sencilla para explorar, visualizar y 
 
 Puedes probar la demo en vivo aquí:
 
-*   **[Demo - Ver Librería](https://soyunomas.github.io/it-prompt-library/)**
+*   **[Demo - Ver Librería](https://soyunomas.github.io/it-prompt-library/index.html)**
 
 ## ✨ Características Principales
 
