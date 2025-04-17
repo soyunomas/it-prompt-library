@@ -10,7 +10,7 @@ Este proyecto proporciona una interfaz web sencilla para explorar, visualizar y 
 
 ## 🖼️ Captura de Pantalla / Demo
 
-![Captura de Pantalla del Proyecto](screenshot.png) <!-- Reemplaza con tu captura -->
+![Captura de Pantalla del Proyecto](screenshot.png) 
 
 Puedes probar la demo en vivo aquí:
 
