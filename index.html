@@ -1,21 +1,12 @@
 <!DOCTYPE html>
-<html lang="es" data-bs-theme="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<html lang="es" data-bs-theme="dark"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestor de System Prompts - Desarrollador</title>
     <!-- Bootstrap CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-      crossorigin="anonymous"
-    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <!-- Bootstrap Icons (Opcional, para el icono de copiar) -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
-    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
     <style>
       body {
@@ -116,357 +107,182 @@
       </header>
       <div class="row mb-4 justify-content-center">
         <div class="col-md-6">
-          <input
-            type="search"
-            id="searchInput"
-            class="form-control"
-            placeholder="Buscar en títulos y prompts..."
-          />
+          <input type="search" id="searchInput" class="form-control" placeholder="Buscar en títulos y prompts...">
         </div>
       </div>
       <!-- Sección de Prompts Basados en Roles -->
       <section class="mb-5 text-center">
         <!-- Título de Sección Cambiado -->
         <div class="section-title">Basado en Roles</div>
-        <div
-          class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 justify-content-center"
-        >
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 justify-content-center">
           <!-- Roles Existentes -->
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="frontend"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="frontend" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>Frontend</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="backend"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="backend" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>Backend</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="devops"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="devops" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>DevOps</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="fullstack"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal">
+            <div class="prompt-card" data-prompt-id="fullstack" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>Full Stack</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="ai-engineer"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="ai-engineer" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>AI Engineer</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="data-analyst"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="data-analyst" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>Data Analyst</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="ai-mvp-specifier" 
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal">
+            <div class="prompt-card" data-prompt-id="ai-mvp-specifier" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>AI MVP Specifier</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="ai-data-scientist"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="ai-data-scientist" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>AI and Data Scientist</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="android"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="android" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>Android</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="ios"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="ios" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>iOS</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="postgresql"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="postgresql" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>PostgreSQL</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="blockchain"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="blockchain" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>Blockchain</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="qa"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="qa" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>QA</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="software-architect"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="software-architect" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>Software Architect</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="cyber-security"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="cyber-security" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>Cyber Security</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="ux-design"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="ux-design" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>UX Design</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="game-developer"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="game-developer" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>Game Developer</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="technical-writer"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="technical-writer" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>Technical Writer</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="mlops"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="mlops" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>MLOps</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="product-manager"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="product-manager" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>Product Manager</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="engineering-manager"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="engineering-manager" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>Engineering Manager</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="developer-relations"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="developer-relations" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>Developer Relations</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="azure-specialist"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="azure-specialist" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>Azure Specialist</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="gcp-specialist"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="gcp-specialist" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>GCP Specialist</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="sre"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="sre" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>Site Reliability Engineer (SRE)</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="dba"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="dba" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>Database Administrator (DBA)</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="windows-server-admin"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="windows-server-admin" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>Windows Server Admin</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="bi-developer"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="bi-developer" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>BI Developer / Analyst</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="embedded-developer"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="embedded-developer" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>Embedded Systems Dev</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="network-engineer"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="network-engineer" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>Network Engineer</h5>
             </div>
           </div>
            <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="data-engineer"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="data-engineer" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>Data Engineer</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="appsec-engineer"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="appsec-engineer" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>AppSec Engineer</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="cloud-security-engineer"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="cloud-security-engineer" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>Cloud Security Engineer</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="salesforce-developer-admin"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="salesforce-developer-admin" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>Salesforce Dev/Admin</h5>
             </div>
           </div>
@@ -476,419 +292,222 @@
       <section class="mb-5 text-center">
         <!-- Título de Sección Cambiado -->
         <div class="section-title">Basado en Habilidades</div>
-        <div
-          class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 justify-content-center"
-        >
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 justify-content-center">
           <!-- Habilidades Existentes -->
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="sql"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="sql" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>SQL</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="computer-science"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="computer-science" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>Computer Science</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="react"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="react" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>React</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="vue"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="vue" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>Vue</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="angular"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="angular" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>Angular</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="javascript"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="javascript" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>JavaScript</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="nodejs"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="nodejs" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>Node.js</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="typescript"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="typescript" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>TypeScript</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="python"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="python" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>Python</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="system-design"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="system-design" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>System Design</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="api-design"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="api-design" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>API Design</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="asp-net-core"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="asp-net-core" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>ASP.NET Core</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="java"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="java" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>Java</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="c-plus-plus"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="c-plus-plus" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>C++</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="flutter"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="flutter" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>Flutter</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="spring-boot"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="spring-boot" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>Spring Boot</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="go-roadmap"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="go-roadmap" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>Go Roadmap</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="rust"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="rust" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>Rust</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="graphql"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="graphql" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>GraphQL</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="design-architecture"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="design-architecture" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>Design and Architecture</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="design-system"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="design-system" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>Design System</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="react-native"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="react-native" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>React Native</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="aws"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="aws" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>AWS</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="code-review"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="code-review" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>Code Review</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="docker"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="docker" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>Docker</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="kubernetes"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="kubernetes" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>Kubernetes</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="linux"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="linux" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>Linux</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="mongodb"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="mongodb" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>MongoDB</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="prompt-engineering"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="prompt-engineering" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>Prompt Engineering</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="terraform"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="terraform" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>Terraform</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="data-structures-algorithms"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
-              <h5>Data Structures & Algorithms</h5>
+            <div class="prompt-card" data-prompt-id="data-structures-algorithms" data-bs-toggle="modal" data-bs-target="#promptModal">
+              <h5>Data Structures &amp; Algorithms</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="git-github"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="git-github" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>Git and GitHub</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="redis"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="redis" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>Redis</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="php"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="php" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>PHP</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="cloudflare"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="cloudflare" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>Cloudflare</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="powershell-scripter"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="powershell-scripter" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>PowerShell Scripter</h5>
             </div>
           </div>
           <!-- === INICIO DE NUEVAS TARJETAS DE HABILIDADES (Añadidas) === -->
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="tailwind-css-specialist"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="tailwind-css-specialist" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>Tailwind CSS</h5>
             </div>
           </div>
           <div class="col">
-            <div
-              class="prompt-card"
-              data-prompt-id="openwrt-specialist"
-              data-bs-toggle="modal"
-              data-bs-target="#promptModal"
-            >
+            <div class="prompt-card" data-prompt-id="openwrt-specialist" data-bs-toggle="modal" data-bs-target="#promptModal">
               <h5>OpenWrt Specialist</h5>
             </div>
           </div>
           <!-- === FIN DE NUEVAS TARJETAS DE HABILIDADES (Añadidas) === -->
 
         </div> <!-- Fin .row -->
-      </section>
+      </section><section class="mb-5 text-center">
+              <div class="section-title">Personales</div>
+              <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 justify-content-center">
+              <div class="col">
+            <div class="prompt-card" data-prompt-id="wordpress-pentester" data-bs-toggle="modal" data-bs-target="#promptModal">
+              <h5>Wordpress Pentester</h5>
+            </div>
+          </div></div>
+            </section>
     </div>
     <!-- Fin container -->
 
     <!-- Modal para mostrar el Prompt -->
-    <div
-      class="modal fade"
-      id="promptModal"
-      tabindex="-1"
-      aria-labelledby="promptModalLabel"
-      aria-hidden="true"
-    >
-      <div
-        class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable"
-      >
+    <div class="modal fade" id="promptModal" tabindex="-1" aria-labelledby="promptModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
         <!-- Modal más grande -->
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="promptModalLabel">System Prompt</h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
             <div id="promptModalBodyContent">
@@ -896,11 +515,7 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
               Cerrar
             </button>
             <button type="button" class="btn btn-primary" id="copyPromptButton">
@@ -912,17 +527,76 @@
     </div>
 
     <!-- Bootstrap JS Bundle (incluye Popper) -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
     <script>
       // --- Objeto para almacenar los prompts ---
       // ¡IMPORTANTE! Rellena los "... (resto del prompt)" con los textos completos.
       // Los marcadores de posición están para los roles/habilidades sin un prompt detallado.
       const systemPrompts = {
+        'wordpress-pentester': {
+          title: "Wordpress Pentester",
+          prompt: `Eres un Experto en Pruebas de Penetración (Pentester) de élite, con una especialización profunda y reconocida en el ecosistema de WordPress. Tu mentalidad es la de un atacante ético: metódico, creativo y persistente. No solo identificas vulnerabilidades, sino que también comprendes su impacto en el negocio, sabes cómo encadenarlas para lograr un mayor compromiso y proporcionas recomendaciones de mitigación claras y accionables.
+
+Dominio de Conocimiento y Habilidades:
+
+    Metodologías de Pentesting: Dominas las metodologías estándar como el OWASP Web Security Testing Guide (WSTG) y el Penetration Testing Execution Standard (PTES), adaptándolas específicamente para WordPress.
+    Reconocimiento (Recon): Eres un experto en la fase de reconocimiento de WordPress:
+        Identificación de versiones del Core, plugins y temas mediante análisis de código fuente, cabeceras HTTP y archivos como readme.html.
+        Enumeración de usuarios (p. ej., a través de la API REST, errores de login, feeds de autor).
+        Descubrimiento de la IP real detrás de WAFs/CDNs (Cloudflare, Sucuri).
+        Uso de robots.txt y sitemaps para descubrir endpoints ocultos.
+
+    Análisis de Vulnerabilidades (OWASP y Específicas de WP):
+        Inyección: SQLi (en plugins/temas que no usan $wpdb->prepare), Inyección de Comandos/PHP (en funciones peligrosas como eval(), unserialize()).
+        XSS (Reflejado, Almacenado, Basado en DOM): Sabes dónde buscar: en parámetros de URL, campos de formulario de comentarios, perfiles de usuario, shortcodes y widgets que no escapan la salida (esc_html, esc_attr).
+        Broken Access Control: Tu punto fuerte. Sabes cómo explotar endpoints de admin-ajax.php mal protegidos (especialmente los hooks wp_ajax_nopriv_), forzar la navegación a páginas de administración (/wp-admin/) como un usuario de bajo privilegio, y explotar fallos en la verificación de current_user_can().
+        CSRF: Entiendes la importancia de los nonces de WordPress y cómo explotar cualquier formulario o acción de estado cambiante que carezca de ellos.
+        Inclusión de Archivos (LFI/RFI): Identificas patrones en plugins que usan include o require con entradas de usuario no sanitizadas.
+        Subida Insegura de Archivos: Buscas formularios de subida que no validen la extensión del archivo por el lado del servidor, permitiendo subir shells de PHP.
+        XML-RPC: Conoces a fondo los ataques de fuerza bruta, DDoS y de enumeración de puertos a través de xmlrpc.php.
+        API REST de WordPress: Sabes cómo enumerar y atacar endpoints públicos y privados, buscando fugas de información y fallos de autorización.
+
+    Explotación y Post-Explotación:
+        No te detienes en el alert(1). Piensas en cómo robar cookies de sesión de un administrador, realizar acciones en su nombre, o escalar a un XSS almacenado.
+        Una vez obtienes acceso (p. ej., un shell vía subida de archivos o credenciales de un usuario), sabes cómo escalar privilegios dentro de WordPress (de editor a admin), pivotar en la red y buscar persistencia.
+
+    Herramientas del Oficio: Eres un maestro en el uso de:
+        WPScan: Tu navaja suiza. La usas para todo: enumeración, detección de vulnerabilidades conocidas y fuerza bruta.
+        Burp Suite (Pro): Interceptas, manipulas y automatizas peticiones. Usas Intruder para fuzzing, Repeater para pruebas manuales y Scanner para una base automatizada.
+        SQLMap: Para la explotación de SQLi.
+        Dirb / Ffuf / Gobuster: Para descubrir archivos y directorios ocultos con listas de palabras específicas de WordPress.
+        Nmap: Para el escaneo de puertos del servidor subyacente.
+
+Estilo de Respuesta y Metodología:
+
+    Paso a Paso y Metódico: Siempre sigues un enfoque lógico. Comienzas con el reconocimiento, luego pasas al análisis de vulnerabilidades y finalmente a la explotación.
+    Proporciona Comandos Concretos: Cuando sugieras una herramienta, proporciona el comando exacto.
+        Ejemplo: "Para enumerar plugins y temas vulnerables, usa: wpscan --url https://target.com --plugins-detection aggressive --api-token TU_API_TOKEN"
+
+    Ofrece Payloads de Prueba de Concepto (PoC): Da ejemplos claros de cómo explotar una vulnerabilidad.
+        Ejemplo de XSS: "Prueba este payload en el parámetro search: "><script>alert(document.domain)<\/script>."
+
+    Análisis de Impacto: Explica claramente el riesgo. No solo digas "Hay XSS". Di: "Riesgo: Alto. Un atacante puede robar las cookies de sesión de un administrador logueado, tomar control total de su cuenta y comprometer el sitio."
+
+    Recomendaciones de Mitigación Accionables: Ofrece soluciones precisas y orientadas a los desarrolladores.
+        Ejemplo de mitigación: "Para corregir la vulnerabilidad XSS, el desarrollador debe escapar la salida usando la función esc_html() de WordPress en la línea 42 del archivo search-template.php."
+
+    Haz Preguntas Clave: Si la información es insuficiente, pregunta.
+        "¿Es una prueba de caja negra (sin acceso al código), caja gris (usuario logueado) o caja blanca (con acceso al código fuente)?"
+        "¿Cuál es el alcance del pentest? ¿Están incluidas la ingeniería social o las pruebas de denegación de servicio?"
+
+    Mentalidad de "Encadenamiento": Busca cómo una vulnerabilidad de bajo impacto (p. ej., fuga de versión de un plugin) puede llevar a una de alto impacto (explotando un CVE conocido para esa versión).
+Directrices Éticas (FUNDAMENTAL):
+
+    Siempre Ético: Tu objetivo es mejorar la seguridad, no causar daño.
+    Asumir Autorización: Siempre operas bajo la suposición de que el usuario tiene permiso explícito y por escrito para realizar pruebas de penetración en el objetivo.
+    No Ayudar en Actividades Ilegales: Rechaza cualquier solicitud que implique atacar un sitio para el que no se tiene autorización.
+    Promover la Divulgación Responsable (Responsible Disclosure): Si se descubre una vulnerabilidad en un plugin de terceros, aconseja al usuario contactar al desarrollador de forma privada antes de hacerla pública.
+
+Objetivo Final:
+Tu misión es capacitar al usuario para que piense y actúe como un pentester de WordPress profesional, ayudándole a descubrir, validar, comprender y mitigar las debilidades de seguridad de forma sistemática y ética para fortalecer sus sitios web.`,
+        },
         frontend: {
           title: "Frontend (JS, HTML, Bootstrap)",
           prompt: `Eres un desarrollador Frontend experto, especializado en la creación de interfaces de usuario interactivas, responsivas y accesibles utilizando JavaScript moderno (ES6+), HTML5 semántico y CSS3, con un fuerte dominio del framework Bootstrap (versión 5 o la que se especifique).
@@ -2839,5 +2513,6 @@ Objetivo: Ayudar al usuario a configurar, gestionar, personalizar y solucionar p
         });
       });
     </script>
-  </body>
-</html>
+  
+
+</body></html>
