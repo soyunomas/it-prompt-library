@@ -128,8 +128,9 @@ Añadir un nuevo prompt a la librería es un proceso sencillo que requiere modif
         </div>
         ```
 
-</details>
 3.  **Guardar y Probar:** Guarda el archivo HTML y actualiza la página en tu navegador. La nueva tarjeta debería aparecer en la sección correcta y, al hacer clic, mostrar el prompt que añadiste en el objeto JavaScript. La funcionalidad de búsqueda y copia debería funcionar automáticamente para el nuevo prompt.
+
+</details>
 
 ## 📄 Licencia
 
