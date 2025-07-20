@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Herramienta: Generador de Prompts v4.1 (Regex Corregido)</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+    <style>
+        body {
+            background-color: #1a1a1a;
+            padding-top: 2rem;
+            padding-bottom: 4rem;
+        }
+        .container {
+            max-width: 960px;
+        }
+        .card {
+            background-color: #2c2f33;
+            border-color: #40454a;
+        }
+        .card-header {
+            background-color: #3a3f44;
+            font-weight: 500;
+        }
+        textarea.form-control {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9rem;
+            background-color: #212529;
+            color: #ced4da;
+            border-color: #495057;
+        }
+        textarea.form-control:focus {
+            background-color: #212529;
+            color: #ced4da;
+            border-color: #0d6efd;
+            box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+        }
+        .file-upload-label {
+            cursor: pointer;
+        }
+        #newSectionContainer {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="text-center mb-5">
+            <h1>Herramienta de Generación de Prompts</h1>
+            <p class="lead text-muted">
+                Con gestión dinámica de secciones.
+            </p>
+        </header>
+
+        <main>
+            <!-- Paso 1: Input del HTML -->
+            <div class="card mb-4 shadow-sm">
+                <div class="card-header">
+                    Paso 1: Sube o pega tu código HTML actual
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <input type="file" id="fileUploader" class="d-none" accept=".html,.htm">
+                        <label for="fileUploader" class="btn btn-secondary file-upload-label">
+                            <i class="bi bi-upload"></i> Subir Archivo HTML
+                        </label>
+                        <span id="fileName" class="ms-3 text-muted"></span>
+                    </div>
+                    <textarea id="inputHtml" class="form-control" rows="10" placeholder="... o pega el contenido completo de tu archivo index.html aquí."></textarea>
+                </div>
+            </div>
+
+            <!-- Paso 2: Formulario para el nuevo prompt -->
+            <div class="card mb-4 shadow-sm">
+                <div class="card-header">
+                    Paso 2: Rellena los datos del nuevo Prompt
+                </div>
+                <div class="card-body">
+                    <form id="promptForm">
+                        <div class="mb-3">
+                            <label for="promptTitle" class="form-label">Título para la Tarjeta</label>
+                            <input type="text" id="promptTitle" class="form-control" required placeholder="Ej: Experto en Pentesting" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="promptId" class="form-label">ID del Prompt (debe ser único)</label>
+                            <div class="input-group">
+                                <!-- CORRECCIÓN: Se escapa el guion en el patrón para compatibilidad -->
+                                <input type="text" id="promptId" class="form-control" required pattern="[a-z0-9\\-]+" title="Solo minúsculas, números y guiones" placeholder="ej: pentesting-expert" />
+                            </div>
+                            <div class="form-check mt-2">
+                                <input class="form-check-input" type="checkbox" id="autoIdCheckbox" checked>
+                                <label class="form-check-label" for="autoIdCheckbox">
+                                    Generar ID automáticamente desde el título
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="promptSection" class="form-label">Sección de Destino</label>
+                            <select id="promptSection" class="form-select" required disabled>
+                                <option value="" disabled selected>Primero sube o pega el HTML...</option>
+                            </select>
+                        </div>
+                        
+                        <div id="newSectionContainer" class="mb-3">
+                            <label for="newSectionName" class="form-label">Nombre de la Nueva Sección</label>
+                            <input type="text" id="newSectionName" class="form-control" placeholder="Ej: Herramientas de Desarrollo" />
+                        </div>
+
+
+                        <div class="mb-3">
+                            <label for="promptContent" class="form-label">Contenido completo del Prompt</label>
+                            <textarea id="promptContent" class="form-control" rows="10" required placeholder="Eres un experto en pentesting..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100">
+                            <i class="bi bi-gear-fill"></i> Generar Código Actualizado
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Paso 3: Output del HTML generado -->
+            <div class="card shadow-sm">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <span>Paso 3: Código HTML Generado</span>
+                    <div>
+                        <button id="copyOutputButton" class="btn btn-success" disabled>
+                            <i class="bi bi-clipboard"></i> Copiar Código
+                        </button>
+                         <button id="downloadButton" class="btn btn-info" disabled>
+                            <i class="bi bi-download"></i> Descargar Fichero
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <textarea id="outputHtml" class="form-control" rows="15" readonly placeholder="Aquí aparecerá el código HTML actualizado..."></textarea>
+                </div>
+            </div>
+
+        </main>
+
+        <footer class="text-center text-muted mt-5">
+            <p>&copy; 2024 - Herramienta creada por tu Asistente Frontend Experto.</p>
+        </footer>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const promptForm = document.getElementById('promptForm');
+        const inputHtml = document.getElementById('inputHtml');
+        const outputHtml = document.getElementById('outputHtml');
+        const copyOutputButton = document.getElementById('copyOutputButton');
+        const downloadButton = document.getElementById('downloadButton');
+        const promptTitleInput = document.getElementById('promptTitle');
+        const promptIdInput = document.getElementById('promptId');
+        const autoIdCheckbox = document.getElementById('autoIdCheckbox');
+        const fileUploader = document.getElementById('fileUploader');
+        const fileNameSpan = document.getElementById('fileName');
+        const promptSectionSelect = document.getElementById('promptSection');
+        const newSectionContainer = document.getElementById('newSectionContainer');
+        const newSectionNameInput = document.getElementById('newSectionName');
+
+        const populateSectionDropdown = (htmlContent) => {
+            promptSectionSelect.innerHTML = '<option value="" disabled selected>Selecciona una sección...</option>';
+            if (!htmlContent) {
+                promptSectionSelect.disabled = true;
+                return;
+            }
+            try {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(htmlContent, 'text/html');
+                const titles = doc.querySelectorAll('.section-title');
+                titles.forEach(titleEl => {
+                    const sectionName = titleEl.textContent.trim();
+                    if (sectionName) {
+                        const option = new Option(sectionName, sectionName);
+                        promptSectionSelect.add(option);
+                    }
+                });
+                promptSectionSelect.add(new Option('Añadir nueva sección...', '--new--'));
+                promptSectionSelect.disabled = false;
+            } catch (e) {
+                console.error("Error al parsear el HTML para las secciones:", e);
+                promptSectionSelect.disabled = true;
+            }
+        };
+
+        fileUploader.addEventListener('change', (event) => {
+            const file = event.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                inputHtml.value = e.target.result;
+                fileNameSpan.textContent = file.name;
+                populateSectionDropdown(e.target.result);
+            };
+            reader.onerror = () => { alert('Error al leer el archivo.'); fileNameSpan.textContent = ''; };
+            reader.readAsText(file);
+        });
+
+        inputHtml.addEventListener('input', () => {
+            populateSectionDropdown(inputHtml.value);
+            fileNameSpan.textContent = '';
+        });
+
+        promptSectionSelect.addEventListener('change', () => {
+            if (promptSectionSelect.value === '--new--') {
+                newSectionContainer.style.display = 'block';
+                newSectionNameInput.required = true;
+            } else {
+                newSectionContainer.style.display = 'none';
+                newSectionNameInput.required = false;
+            }
+        });
+        
+        const generateIdFromTitle = (title) => title.toLowerCase().trim().replace(/[^\w\s-]/g, '').replace(/\s+/g, '-').replace(/-+/g, '-');
+        promptTitleInput.addEventListener('input', () => { if (autoIdCheckbox.checked) promptIdInput.value = generateIdFromTitle(promptTitleInput.value); });
+        autoIdCheckbox.addEventListener('change', () => {
+            promptIdInput.readOnly = autoIdCheckbox.checked;
+            if (autoIdCheckbox.checked) promptIdInput.value = generateIdFromTitle(promptTitleInput.value);
+        });
+
+        promptForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            copyOutputButton.disabled = true;
+            downloadButton.disabled = true;
+            copyOutputButton.innerHTML = '<i class="bi bi-clipboard"></i> Copiar Código';
+            
+            const sourceHtml = inputHtml.value;
+            const title = promptTitleInput.value;
+            const id = promptIdInput.value;
+            const section = promptSectionSelect.value;
+            const newSectionName = newSectionNameInput.value;
+            const content = document.getElementById('promptContent').value;
+            
+            if (!sourceHtml.trim() || !title.trim() || !id.trim() || !section || !content.trim() || (section === '--new--' && !newSectionName.trim())) {
+                alert('Por favor, completa todos los campos requeridos.');
+                return;
+            }
+
+            try {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(sourceHtml, 'text/html');
+
+                const newCardHtml = `
+          <div class="col">
+            <div
+              class="prompt-card"
+              data-prompt-id="${id}"
+              data-bs-toggle="modal"
+              data-bs-target="#promptModal"
+            >
+              <h5>${title}</h5>
+            </div>
+          </div>`;
+                const tempDiv = doc.createElement('div');
+                tempDiv.innerHTML = newCardHtml.trim();
+                const newCardElement = tempDiv.firstChild;
+
+                if (section === '--new--') {
+                    const newSectionHTML = `
+            <section class="mb-5 text-center">
+              <div class="section-title">${newSectionName}</div>
+              <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 justify-content-center">
+              </div>
+            </section>`;
+                    
+                    const newSectionDiv = doc.createElement('div');
+                    newSectionDiv.innerHTML = newSectionHTML.trim();
+                    const newSectionElement = newSectionDiv.firstChild;
+                    newSectionElement.querySelector('.row').appendChild(newCardElement);
+
+                    const sections = doc.querySelectorAll('section');
+                    const lastSection = sections[sections.length - 1];
+                    if (lastSection) {
+                        lastSection.insertAdjacentElement('afterend', newSectionElement);
+                    } else {
+                        doc.querySelector('.container').appendChild(newSectionElement);
+                    }
+                } else {
+                    const sectionTitleDiv = Array.from(doc.querySelectorAll('.section-title')).find(div => div.textContent.trim() === section);
+                    if (!sectionTitleDiv) throw new Error(`Sección "${section}" no encontrada.`);
+                    const targetRow = sectionTitleDiv.nextElementSibling;
+                    if (!targetRow || !targetRow.classList.contains('row')) throw new Error(`Contenedor de tarjetas para "${section}" no encontrado.`);
+                    targetRow.appendChild(newCardElement);
+                }
+
+                const escapedContent = content.replace(/\\/g, '\\\\').replace(/`/g, '\\`').replace(/<\/script>/gi, '<\\/script>');
+                const newPromptObject = `
+        '${id}': {
+          title: "${title}",
+          prompt: \`${escapedContent}\`,
+        },`;
+
+                const scriptTag = Array.from(doc.querySelectorAll('script:not([src])')).find(s => s.textContent.includes('const systemPrompts = {'));
+                if (!scriptTag) throw new Error('No se pudo encontrar el script con "systemPrompts".');
+                let scriptContent = scriptTag.textContent;
+                const insertPosition = scriptContent.indexOf('{') + 1;
+                scriptTag.textContent = scriptContent.slice(0, insertPosition) + newPromptObject + scriptContent.slice(insertPosition);
+
+                const finalHtml = '<!DOCTYPE html>\n' + doc.documentElement.outerHTML;
+
+                outputHtml.value = finalHtml;
+                copyOutputButton.disabled = false;
+                downloadButton.disabled = false;
+                alert('¡Código generado con éxito!');
+
+            } catch (error) {
+                console.error("Error durante la generación:", error);
+                alert(`Ocurrió un error: ${error.message}. Revisa la consola para más detalles.`);
+            }
+        });
+
+        copyOutputButton.addEventListener('click', () => {
+            if (!outputHtml.value) return;
+            navigator.clipboard.writeText(outputHtml.value).then(() => {
+                copyOutputButton.innerHTML = '<i class="bi bi-check-lg"></i> Copiado!';
+                setTimeout(() => { copyOutputButton.innerHTML = '<i class="bi bi-clipboard"></i> Copiar Código'; }, 2000);
+            }).catch(() => alert('Error al copiar el código.'));
+        });
+        
+        downloadButton.addEventListener('click', () => {
+            if (!outputHtml.value) return;
+            const blob = new Blob([outputHtml.value], { type: 'text/html' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'index-updated.html';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(link.href);
+        });
+    });
+    </script>
+</body>
+</html>
