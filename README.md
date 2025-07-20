@@ -26,7 +26,7 @@ Puedes probar la demo en vivo aquí:
 *   **📱 Diseño Responsivo:** Interfaz adaptable a diferentes tamaños de pantalla (escritorio, tablet, móvil).
 *   **🎨 Tema Oscuro:** Estilo visual moderno y agradable a la vista.
 *   **🧩 Código Autónomo:** Todo en un solo archivo HTML con CSS y JavaScript incrustados para simplicidad.
-*   **🔧 Fácilmente Extensible:** Añadir nuevos prompts es tan simple como editar el objeto JavaScript y añadir una tarjeta HTML.
+*   **🔧 Fácilmente Extensible:** Añade nuevos prompts fácilmente con la herramienta generadora incluida en el repositorio ([updater.html](https://soyunomas.github.io/it-prompt-library/updater.html)).
 
 ## 🛠️ Tecnologías Utilizadas
 
@@ -63,7 +63,29 @@ Este proyecto es una aplicación web estática del lado del cliente. Para ejecut
 5.  **Copiar:** Dentro del modal, haz clic en el botón "<i class="bi bi-clipboard"></i> Copiar Prompt". El texto completo del prompt se copiará a tu portapapeles, listo para pegarlo donde lo necesites. Recibirás una confirmación visual en el botón ("¡Copiado!").
 6.  **Cerrar:** Cierra el modal haciendo clic en el botón "Cerrar" o en la 'X' de la esquina superior derecha.
 
-## ✏️ Cómo Añadir un Nuevo Prompt
+---
+
+## 🚀 Método Recomendado: Usar la Herramienta Generadora
+
+Para facilitar el proceso y evitar errores, se ha creado una herramienta web que automatiza la adición de nuevos prompts.
+
+**➡️ [¡Abrir Herramienta Generadora!](https://soyunomas.github.io/it-prompt-library/updater.html)**
+
+### ¿Cómo usar la herramienta?
+
+1.  **Abre la herramienta** en el enlace de arriba.
+2.  **Sube o pega** el contenido completo de tu archivo `index.html`.
+3.  **Rellena el formulario** con los datos del nuevo prompt (título, contenido y la sección de destino, que puedes elegir de una lista o crear una nueva).
+4.  Haz clic en el botón **"Generar Código Actualizado"**.
+5.  **Descarga o copia** el código generado en el "Paso 3".
+6.  **Reemplaza** el contenido completo de tu archivo `index.html` con este nuevo código.
+
+¡Listo! La herramienta se encarga de colocar la tarjeta HTML y el objeto JavaScript en los lugares correctos, garantizando la consistencia.
+
+<br>
+
+<details>
+<summary>✏️ Método Manual (Para Entender el Funcionamiento Interno)</summary>
 
 Añadir un nuevo prompt a la librería es un proceso sencillo que requiere modificar dos partes del archivo `index.html` (o como lo hayas llamado):
 
@@ -106,6 +128,7 @@ Añadir un nuevo prompt a la librería es un proceso sencillo que requiere modif
         </div>
         ```
 
+</details>
 3.  **Guardar y Probar:** Guarda el archivo HTML y actualiza la página en tu navegador. La nueva tarjeta debería aparecer en la sección correcta y, al hacer clic, mostrar el prompt que añadiste en el objeto JavaScript. La funcionalidad de búsqueda y copia debería funcionar automáticamente para el nuevo prompt.
 
 ## 📄 Licencia
